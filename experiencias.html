@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experiências</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calábria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html" class="active">Experiências</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificacoes.html">Certificações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="experiencias">
+        <div class="container">
+            <h2>Minhas Experiências Profissionais</h2>
+            
+            <div class="carrossel-container">
+                <div class="carrossel" id="carrossel">
+                    <div class="experiencia-item">
+                        <h3>🌐 Desenvolvedor Freelancer</h3>
+                        <p class="empresa">Projetos Autônomos • 2020 - Atualmente</p>
+                        <p>Desenvolvimento de sites e landing pages para clientes diversos.</p>
+                        <ul>
+                            <li>Criação de sites institucionais</li>
+                            <li>Desenvolvimento de e-commerces</li>
+                            <li>Otimização SEO</li>
+                            <li>Suporte técnico</li>
+                        </ul>
+                        <p class="tech-tags">
+                            <span class="tech-tag">WordPress</span>
+                            <span class="tech-tag">MySQL</span>
+                            <span class="tech-tag">SEO</span>
+                        </p>
+                    </div>
+                  
+                    <div class="experiencia-item">
+                        <h3>💼 Analista de Suporte Computacional</h3>
+                        <p class="empresa">RFNET SERVICES LTDA • Mar 2020 - Ago 2023</p>
+                        <p>Suporte técnico especializado em infraestrutura de TI e atendimento ao usuário.</p>
+                        <ul>
+                            <li>Manutenção de estrutura física de computadores e servidores</li>
+                            <li>Estrutura de rede</li>
+                            <li>Estrutura de área local de computadores</li>
+                            <li>Controle de acesso</li>
+                            <li>Manutenção de rede</li>
+                            <li>Suporte a usuários</li>
+                        </ul>
+                        <p class="tech-tags">
+                            <span class="tech-tag">Linux</span>
+                            <span class="tech-tag">Redes</span>
+                            <span class="tech-tag">Controle de Acesso</span>
+                            <span class="tech-tag">Windows</span>
+                            <span class="tech-tag">Servidores</span>
+                        </p>
+                    </div>
+                    
+                    <div class="experiencia-item">
+                        <h3>🌐 Técnico em Tecnologias e Artes</h3>
+                        <p class="empresa">Poiesis Instituto de Apoio à Cultura, Língua e Literatura • Agosto 2023 - Julho 2025</p>
+                        <p>Educador de robótica e cultura maker.</p>
+                        <ul>
+                            <li>Criação de projetos 3D</li>
+                            <li>Robótica educacional</li>
+                            <li>Manutenção de equipamentos</li>
+                            <li>Corte a Laser</li>
+                            <li>Educador cultural</li>
+                        </ul>
+                        <p class="tech-tags">
+                            <span class="tech-tag">Cura</span>
+                            <span class="tech-tag">Modelagem 3D</span>
+                            <span class="tech-tag">Corte a Laser</span>
+                            <span class="tech-tag">Educação</span>
+                            <span class="tech-tag">Arduino</span>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="carrossel-controles">
+                    <button class="carrossel-btn" onclick="moverCarrossel(-1)">❮ Anterior</button>
+                    <button class="carrossel-btn" onclick="moverCarrossel(1)">Próximo ❯</button>
+                </div>
+                
+                <div class="carrossel-indicadores" id="indicadores"></div>
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+ let indiceAtual = 0;
+    const items = document.querySelectorAll('.experiencia-item');
+    const carrossel = document.getElementById('carrossel');
+    const indicadoresContainer = document.getElementById('indicadores');
+    let intervaloCarrossel; 
+    
+
+    function inicializarCarrossel() {
+        items.forEach((_, index) => {
+            const indicator = document.createElement('div');
+            indicator.classList.add('indicator');
+            if (index === 0) indicator.classList.add('active');
+            indicator.addEventListener('click', () => {
+                pularParaItem(index);
+                resetarTimer();
+            });
+            indicadoresContainer.appendChild(indicator);
+        });
+        
+        carrossel.style.width = `${items.length * 100}%`;
+        
+        items.forEach(item => {
+            item.style.width = `${100 / items.length}%`;
+        });
+        
+        atualizarCarrossel();
+        iniciarTimer();
+    }
+    
+    function atualizarCarrossel() {
+        const porcentagemTraducao = indiceAtual * (100 / items.length);
+        carrossel.style.transform = `translateX(-${porcentagemTraducao}%)`;
+        
+        document.querySelectorAll('.indicator').forEach((indicator, index) => {
+            indicator.classList.toggle('active', index === indiceAtual);
+        });
+    }
+    
+    function moverCarrossel(direcao) {
+        indiceAtual = (indiceAtual + direcao + items.length) % items.length;
+        atualizarCarrossel();
+        resetarTimer();
+    }
+    
+    function pularParaItem(index) {
+        indiceAtual = index;
+        atualizarCarrossel();
+        resetarTimer();
+    }
+    
+    function iniciarTimer() {
+        intervaloCarrossel = setInterval(() => moverCarrossel(1), 10000); 
+    }
+
+    function resetarTimer() {
+        clearInterval(intervaloCarrossel); 
+        iniciarTimer(); 
+    }
+    
+    document.getElementById('mobile-menu').addEventListener('click', function() {
+        document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    function alternarTema() {
+        const temaAtual = document.body.getAttribute('data-tema') || 'light';
+        const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+        const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+        
+        document.body.setAttribute('data-tema', novoTema);
+        document.querySelector('.toggle-tema').textContent = iconeTema;
+        localStorage.setItem('tema', novoTema);
+    }
+    
+    const temaSalvo = localStorage.getItem('tema');
+    if (temaSalvo) {
+        document.body.setAttribute('data-tema', temaSalvo);
+        document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+    }
+    
+    window.addEventListener('load', inicializarCarrossel);  
+    </script>
+</body>
+</html>

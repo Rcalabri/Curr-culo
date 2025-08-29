@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projetos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calábria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiências</a></li>
+                <li><a href="projetos.html" class="active">Projetos</a></li>
+                <li><a href="certificacoes.html">Certificações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="projetos">
+        <div class="container">
+            <h2>Meus Projetos</h2>
+            
+            <div class="projetos-grid">
+
+                <div class="project">
+                    <div class="project-image">
+                        <img src="assets/sites.jpg" alt="Projeto 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Sites</h3>
+                        <p>Desenvolvimento de sites profissionais e landing pages para diversos clientes. Criação de plataformas responsivas e otimizadas com WordPress, focadas em experiência do usuário e performance</p>
+                        <div class="project-tech">
+                            <span>HTML5</span>
+                            <span>CSS3</span>
+                            <span>JavaScript</span>
+                            <span>WordPress</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://zonalesteandaimes.com.br/" class="project-link" target="_blank" rel="noopener noreferrer">💻 Site</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-image">
+                        <img src="assets/sky.png" alt="Projeto 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Solver Skyscraper</h3>
+                        <p>Sistema em C que resolve automaticamente o puzzle Skyscraper, implementando algoritmos de backtracking e validação de regras. A aplicação analisa as restrições de visibilidade e encontra soluções válidas de forma eficiente.</p>
+                        <div class="project-tech">
+                            <span>C</span>
+                            <span>Logica de Programação</span>
+                            <span>Jogos</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://pt.puzzle-skyscrapers.com/" class="project-link" target="_blank" rel="noopener noreferrer">🌐 Jogo</a>
+                            <a href="https://github.com/Rcalabri/42-Psicine/tree/8418074f6e1ecf9b2e09ca49607c2b465fd8bd20/Rush/Rush01" class="project-link" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project">
+                    <div class="project-image">
+                        <img src="assets/c.png" alt="Projeto 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>Funções em C</h3>
+                        <p>Recriação de funções fundamentais da biblioteca padrão C durante o processo seletivo da 42 SP. Implementação de putstring, putchar e outras funções essenciais, demonstrando domínio de manipulação de memória e algoritmos de baixo nível.</p>
+                        <div class="project-tech">
+                            <span>C</span>
+                            <span>GitHub</span>
+                            <span>42SP</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="https://github.com/Rcalabri/42-Psicine/tree/8418074f6e1ecf9b2e09ca49607c2b465fd8bd20/Listas" class="project-link" target="_blank" rel="noopener noreferrer">💻 GitHub</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function alternarTema() {
+            const temaAtual = document.body.getAttribute('data-tema') || 'light';
+            const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+            const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+            
+            document.body.setAttribute('data-tema', novoTema);
+            document.querySelector('.toggle-tema').textContent = iconeTema;
+            localStorage.setItem('tema', novoTema);
+        }
+        
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo) {
+            document.body.setAttribute('data-tema', temaSalvo);
+            document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

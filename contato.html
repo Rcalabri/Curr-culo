@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calabria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiências</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificacoes.html">Certificações</a></li>
+                <li><a href="contato.html" class="active">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="contato">
+        <div class="container">
+            <h2>Entre em Contato</h2>
+            
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <h3><i class="fas fa-info-circle"></i> Informações de Contato</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <div class="contact-details">
+                                <strong>Email</strong>
+                                <p>rodrigo.calabria@live.com</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <div class="contact-details">
+                                <strong>Telefone</strong>
+                                <p>(11) 91936-2237</p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <div class="contact-details">
+                                <strong>Localização</strong>
+                                <p>Rua José Manuel Camisa Nova, 100</p>
+                                <p>Parque Otero - São Paulo/SP</p>
+                                <p>CEP: 05822-015</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-card">
+                        <h3><i class="fas fa-globe"></i> Redes Sociais</h3>
+                        <div class="social-links">
+                            <a href="https://www.linkedin.com/in/rodrigocalabria/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                                <span class="social-icon"><i class="fab fa-linkedin fa-2x"></i></span>
+                            </a>
+                            <a href="https://github.com/Rcalabri" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                                <span class="social-icon"><i class="fab fa-github fa-2x"></i></span>
+                            </a>
+                            <a href="https://www.instagram.com/tranks_rodrigo/" class="social-link" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                                <span class="social-icon"><i class="fab fa-instagram fa-2x"></i></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <div class="form-card">
+                        <h3><i class="fas fa-envelope"></i> Envie uma Mensagem</h3>
+                        <form id="form-contato" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                            <input type="hidden" name="form-name" value="contact">
+                            <p style="display: none;">
+                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                            </p>
+                            
+                            <div class="form-group">
+                                <label for="nome"><i class="fas fa-user"></i> Nome Completo</label>
+                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="mensagem"><i class="fas fa-comment"></i> Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem..." rows="5" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-paper-plane"></i>
+                                Enviar Mensagem
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div id="success-message" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px;">
+                <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entrarei em contato em breve.
+            </div>
+            
+            <div id="error-message" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: #f8d7da; color: #721c24; border-radius: 8px;">
+                <i class="fas fa-exclamation-triangle"></i> Erro ao enviar mensagem. Tente novamente.
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function alternarTema() {
+            const temaAtual = document.body.getAttribute('data-tema') || 'light';
+            const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+            const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+            
+            document.body.setAttribute('data-tema', novoTema);
+            document.querySelector('.toggle-tema').textContent = iconeTema;
+            localStorage.setItem('tema', novoTema);
+        }
+        
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo) {
+            document.body.setAttribute('data-tema', temaSalvo);
+            document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+        }
+
+        document.getElementById('form-contato').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const form = this;
+            const formData = new FormData(form);
+            const button = form.querySelector('button[type="submit"]');
+            const originalButtonText = button.innerHTML;
+            const successMessage = document.getElementById('success-message');
+            const errorMessage = document.getElementById('error-message');
+            
+            successMessage.style.display = 'none';
+            errorMessage.style.display = 'none';
+            
+            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+            button.disabled = true;
+            
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(() => {
+                successMessage.style.display = 'block';
+                form.reset();
+
+                successMessage.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            })
+            .catch(() => {
+                errorMessage.style.display = 'block';
+                errorMessage.scrollIntoView({ 
+                    behavior: 'smooth', 
+                    block: 'center' 
+                });
+            })
+            .finally(() => {
+                button.innerHTML = originalButtonText;
+                button.disabled = false;
+                
+                setTimeout(() => {
+                    successMessage.style.display = 'none';
+                    errorMessage.style.display = 'none';
+                }, 5000);
+            });
+        });
+    </script>
+    
+    <style>
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 15px;
+            background: transparent;
+            border-radius: 10px;
+            text-decoration: none;
+            color: var(--cor-texto);
+            transition: all 0.3s ease;
+            border: 1px solid transparent;
+        }
+
+        .social-link:hover {
+            background: transparent;
+            transform: translateY(-3px);
+            border-color: transparent;
+        }
+
+        .social-icon {
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--cor-primaria);
+            transition: all 0.3s ease;
+        }
+
+        .social-link:hover .social-icon {
+            color: var(--cor-secundaria);
+            transform: scale(1.2);
+        }
+        
+        .social-icon i {
+            font-size: 2rem;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificações</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calabria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiências</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificacoes.html" class="active">Certificações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="certificacoes">
+        <div class="container">
+            <h2>Minhas Certificações</h2>
+            
+            <div class="certificates-grid">
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="certificate-badge">
+                            <span class="badge-text">Concluído</span>
+                        </div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <p class="institution">FIAP - Faculdade de Informática e Administração Paulista</p>
+                        <p class="description">Certificado de Qualificação Profissional em Análise de Sistemas e Prototipagem Web.</p>
+                        <p class="validation">Código do documento: 68825C9F</p>
+                        <div class="certificate-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="linkvalidation">
+                                <a href="https://www.fiap.com.br/consultadocumento?" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-link"></i> Link de validação
+                                </a>  
+                            </div>
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="skill-tag">Programação</span>
+                            <span class="skill-tag">Análise de Sistemas</span>
+                            <span class="skill-tag">Prototipagem Web</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">CSS</span>
+                            <span class="skill-tag">HTML</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certificate-card">
+                    <div class="certificate-header">
+                        <div class="certificate-icon">
+                            <i class="fas fa-laptop-code"></i>
+                        </div>
+                        <div class="certificate-badge">
+                            <span class="badge-text">Concluído</span>
+                        </div>
+                    </div>
+                    <div class="certificate-content">
+                        <h3>Análise e Desenvolvimento de Sistemas</h3>
+                        <p class="institution">FIAP - Faculdade de Informática e Administração Paulista</p>
+                        <p class="description">Certificado de Qualificação Profissional em Análise e Design Web 2.0.</p>
+                        <p class="validation">Código do documento: 68825C9F</p>
+                        <div class="certificate-details">
+                            <div class="detail-item">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>2022</span>
+                            </div>
+                            <div class="linkvalidation">
+                                <a href="https://www.fiap.com.br/consultadocumento?" class="social-link" target="_blank" rel="noopener noreferrer">
+                                    <i class="fas fa-link"></i> Link de validação
+                                </a>                            
+                            </div>
+                        </div>
+                        <div class="certificate-skills">
+                            <span class="skill-tag">HTML/CSS</span>
+                            <span class="skill-tag">JavaScript</span>
+                            <span class="skill-tag">React</span>
+                            <span class="skill-tag">Node.js</span>
+                            <span class="skill-tag">Web Design</span>
+                            <span class="skill-tag">Analise de Sistemas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function alternarTema() {
+            const temaAtual = document.body.getAttribute('data-tema') || 'light';
+            const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+            const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+            
+            document.body.setAttribute('data-tema', novoTema);
+            document.querySelector('.toggle-tema').textContent = iconeTema;
+            localStorage.setItem('tema', novoTema);
+        }
+        
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo) {
+            document.body.setAttribute('data-tema', temaSalvo);
+            document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+        }
+
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const cards = document.querySelectorAll('.certificate-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                card.style.transition = `opacity 0.6s ease ${index * 0.1}s, transform 0.6s ease ${index * 0.1}s`;
+                observer.observe(card);
+            });
+        });
+    </script>
+</body>
+</html>

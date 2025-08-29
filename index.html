@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Currículo Dev</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calábria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Sobre</a></li>
+                <li><a href="habilidades.html">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiências</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificacoes.html">Certificações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header>
+        <div class="container">
+            <img src="assets/foto-perfil.jpg" alt="Sua Foto" class="profile-pic">
+            <h1>Rodrigo Vinicius Calábria Bueno</h1>
+            <p> Engenharia de Software | Desenvolvedor Web | React.js | Node.js | Python | C | SQL </p>
+            <a href="assets/cv.pdf" class="btn" download="cv.pdf" target="_blank" rel="noopener noreferrer">Baixar CV em PDF</a>
+        </div>
+    </header>
+    
+    <section id="sobre">
+        <div class="container">
+            <h2>Sobre Mim</h2>
+            <div class="sobre-content">
+                
+                
+                <p>Desenvolvedor apaixonado por tecnologia, com uma trajetória impulsionada pela curiosidade e resolução de problemas. Minha jornada na programação começou em 2022 e, desde então, tenho construído minha experiência de forma proativa através de projetos freelancer e independentes, e participando de imersões técnicas para constante atualização. Atualmente busco uma oportunidade de ingressar em um ambiente de trabalho onde eu possa colocar em prática meus conhecimentos em desenvolvimento Web e aprimorá-los.</p>
+
+                <p>Estudei Análise e Desenvolvimento de Sistemas pela FIAP e possuo certificações em Desenvolvimento Web e Prototipagem, o que me proporciona uma visão abrangente para atuar de forma versátil entre front-end e back-end.</p>
+
+                <p>Além da técnologia, sou um entusiasta de jogos de lógica, quebra-cabeças e enigmas, hobbies que aprimoram minha capacidade de pensar de forma criativa e estratégica. Acredito profundamente no poder da colaboração e estou sempre em busca de trocar experiências e aprender com outros profissionais.</p>
+                
+
+                <div class="destaques">
+                    <div class="destaque-item">
+                        <h3>+3 anos</h3>
+                        <p>de experiência de forma idependente.</p>
+                    </div>
+                    <div class="destaque-item">
+                        <h3>100%</h3>
+                        <p>comprometimento</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+        // Menu Mobile
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        // Gerenciamento de Tema
+        function alternarTema() {
+            const temaAtual = document.body.getAttribute('data-tema') || 'light';
+            const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+            const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+            
+            document.body.setAttribute('data-tema', novoTema);
+            document.querySelector('.toggle-tema').textContent = iconeTema;
+            localStorage.setItem('tema', novoTema);
+        }
+        
+        // Carregar tema salvo
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo) {
+            document.body.setAttribute('data-tema', temaSalvo);
+            document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>

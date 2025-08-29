@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habilidades</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <div class="logo">
+                <a href="index.html">Rodrigo Calábria</a>
+            </div>
+            
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            
+            <ul class="nav-links">
+                <li><a href="index.html">Sobre</a></li>
+                <li><a href="habilidades.html" class="active">Habilidades</a></li>
+                <li><a href="experiencias.html">Experiências</a></li>
+                <li><a href="projetos.html">Projetos</a></li>
+                <li><a href="certificacoes.html">Certificações</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="habilidades">
+        <div class="container">
+            <h2>Habilidades Técnicas</h2>
+            
+                <div class="skill-category">
+                    <h3>⚙️ Linguagens</h3>
+                    <div class="skill-item">
+                        <span>C</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%"></div>
+                        </div>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 70%"></div>
+                        </div>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>HTML/CSS</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%"></div>
+                        </div>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>JavaScript</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 60%"></div>
+                        </div>
+                        <span>60%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🛠️ Ferramentas</h3>
+                    <div class="skill-item">
+                        <span>Git/GitHub</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>VS Code</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%"></div>
+                        </div>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Figma</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                        <span>45%</span>
+                    </div>
+                     <div class="skill-item">
+                        <span>Linux</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%"></div>
+                        </div>
+                        <span>85%</span>
+                    </div>
+                </div>
+                
+                <div class="skill-category">
+                    <h3>🌐 Ingles</h3>
+                    <div class="skill-item">
+                        <span>Leitura</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 65%"></div>
+                        </div>
+                        <span>65%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Conversação</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 20%"></div>
+                        </div>
+                        <span>20%</span>
+                    </div>
+                    <div class="skill-item">
+                        <span>Escrita</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 35%"></div>
+                        </div>
+                        <span>35%</span>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </section>
+
+    <button class="toggle-tema" onclick="alternarTema()">🌙</button>
+
+    <script>
+        document.getElementById('mobile-menu').addEventListener('click', function() {
+            document.querySelector('.nav-links').classList.toggle('active');
+        });
+
+        function alternarTema() {
+            const temaAtual = document.body.getAttribute('data-tema') || 'light';
+            const novoTema = temaAtual === 'light' ? 'dark' : 'light';
+            const iconeTema = novoTema === 'dark' ? '☀️' : '🌙';
+            
+            document.body.setAttribute('data-tema', novoTema);
+            document.querySelector('.toggle-tema').textContent = iconeTema;
+            localStorage.setItem('tema', novoTema);
+        }
+        
+        const temaSalvo = localStorage.getItem('tema');
+        if (temaSalvo) {
+            document.body.setAttribute('data-tema', temaSalvo);
+            document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
+        }
+    </script>
+</body>
+</html>
