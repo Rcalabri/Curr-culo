@@ -1073,4 +1073,214 @@ section .container > *:nth-child(3) { animation-delay: 0.3s; }
 .certificate-card:nth-child(3) { animation-delay: 0.3s; }
 .certificate-card:nth-child(4) { animation-delay: 0.4s; }
 .certificate-card:nth-child(5) { animation-delay: 0.5s; }
-.certificate-card:nth-child(6) { animation-delay: 0
+.certificate-card:nth-child(6) { animation-delay: 0.6s; }
+.certificate-card:nth-child(7) { animation-delay: 0.7s; }
+
+[data-tema="dark"] .linkvalidation a {
+    box-shadow: 0 4px 10px rgba(92, 122, 182, 0.3);
+}
+
+[data-tema="dark"] .linkvalidation a:hover {
+    box-shadow: 0 6px 20px rgba(92, 122, 182, 0.5);
+}
+
+[data-tema="dark"] .certificate-badge {
+    box-shadow: 0 2px 8px rgba(40, 167, 69, 0.5);
+}
+
+[data-tema="dark"] .validation {
+    background: linear-gradient(135deg, rgba(92, 122, 182, 0.2) 0%, rgba(0, 143, 200, 0.2) 100%);
+    border-left-color: var(--cor-primaria);
+}
+
+@media (max-width: 968px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .contact-info {
+        gap: 20px;
+    }
+    
+    .contact-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex;
+    }
+    
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        left: -100%;
+        background: #2c3e50;
+        width: 100%;
+        flex-direction: column;
+        transition: 0.3s;
+        padding: 20px 0;
+        z-index: 99;
+    }
+    
+    .nav-links.active {
+        left: 0;
+    }
+    
+    .nav-links li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+    
+    .nav-links li a {
+        padding: 15px;
+        display: block;
+    }
+    
+    header {
+        padding: 60px 0;
+    }
+    
+    header h1 {
+        font-size: 2rem;
+    }
+    
+    section {
+        padding: 60px 0;
+    }
+    
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+    
+    .destaques {
+        grid-template-columns: 1fr;
+    }
+    
+    .skills-grid,
+    .projetos-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contato-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .carrossel-container {
+        padding: 15px;
+        margin: 20px auto;
+    }
+    
+    .experiencia-item {
+        padding: 20px 15px;
+        margin: 0 5px;
+    }
+    
+    .carrossel-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .tech-tags {
+        gap: 8px;
+    }
+    
+    .tech-tag {
+        padding: 4px 10px;
+        font-size: 0.8rem;
+    }
+
+    .certificates-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    
+    .certificate-header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 18px;
+    }
+    
+    .certificate-content {
+        padding: 20px;
+    }
+    
+    .certificate-details {
+        gap: 12px;
+        padding: 12px 0;
+    }
+    
+    .linkvalidation a {
+        padding: 12px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .certificate-skills {
+        justify-content: flex-start;
+        gap: 8px;
+    }
+    
+    .skill-tag {
+        padding: 5px 12px;
+        font-size: 0.8rem;
+    }
+
+    .contact-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+    
+    .contact-icon {
+        align-self: center;
+    }
+    
+    .social-links {
+        gap: 10px;
+    }
+    
+    .social-link {
+        padding: 12px;
+    }
+    
+    .form-card {
+        padding: 20px;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .btn-primary {
+        padding: 12px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .certificate-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .certificate-badge {
+        font-size: 0.75rem;
+        padding: 5px 10px;
+    }
+    
+    .certificate-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .institution {
+        font-size: 0.9rem;
+    }
+    
+    .description {
+        font-size: 0.95rem;
+    }
+}
