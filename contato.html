@@ -11,7 +11,7 @@
     <nav>
         <div class="container nav-container">
             <div class="logo">
-                <a href="index.html">Rodrigo Calabria</a>
+                <a href="index.html">Rodrigo Calábria</a>
             </div>
             
             <div class="menu-toggle" id="mobile-menu">
@@ -54,7 +54,6 @@
                                 <p>(11) 91936-2237</p>
                             </div>
                         </div>
-
                     </div>
 
                     <div class="contact-card">
@@ -72,46 +71,6 @@
                         </div>
                     </div>
                 </div>
-                
-                <div class="contact-form">
-                    <div class="form-card">
-                        <h3><i class="fas fa-envelope"></i> Envie uma Mensagem</h3>
-                        <form id="form-contato" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-                            <input type="hidden" name="form-name" value="contact">
-                            <p style="display: none;">
-                                <label>Don't fill this out if you're human: <input name="bot-field" /></label>
-                            </p>
-                            
-                            <div class="form-group">
-                                <label for="nome"><i class="fas fa-user"></i> Nome Completo</label>
-                                <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="email"><i class="fas fa-envelope"></i> Email</label>
-                                <input type="email" id="email" name="email" placeholder="seu@email.com" required>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="mensagem"><i class="fas fa-comment"></i> Mensagem</label>
-                                <textarea id="mensagem" name="mensagem" placeholder="Sua mensagem..." rows="5" required></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn btn-primary">
-                                <i class="fas fa-paper-plane"></i>
-                                Enviar Mensagem
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="success-message" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: #d4edda; color: #155724; border-radius: 8px;">
-                <i class="fas fa-check-circle"></i> Mensagem enviada com sucesso! Entrarei em contato em breve.
-            </div>
-            
-            <div id="error-message" style="display: none; text-align: center; margin-top: 20px; padding: 20px; background: #f8d7da; color: #721c24; border-radius: 8px;">
-                <i class="fas fa-exclamation-triangle"></i> Erro ao enviar mensagem. Tente novamente.
             </div>
         </div>
     </section>
@@ -138,61 +97,14 @@
             document.body.setAttribute('data-tema', temaSalvo);
             document.querySelector('.toggle-tema').textContent = temaSalvo === 'dark' ? '☀️' : '🌙';
         }
-
-        document.getElementById('form-contato').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const form = this;
-            const formData = new FormData(form);
-            const button = form.querySelector('button[type="submit"]');
-            const originalButtonText = button.innerHTML;
-            const successMessage = document.getElementById('success-message');
-            const errorMessage = document.getElementById('error-message');
-            
-            successMessage.style.display = 'none';
-            errorMessage.style.display = 'none';
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
-            button.disabled = true;
-            
-            fetch('/', {
-                method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
-            .then(() => {
-                successMessage.style.display = 'block';
-                form.reset();
-
-                successMessage.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-            })
-            .catch(() => {
-                errorMessage.style.display = 'block';
-                errorMessage.scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'center' 
-                });
-            })
-            .finally(() => {
-                button.innerHTML = originalButtonText;
-                button.disabled = false;
-                
-                setTimeout(() => {
-                    successMessage.style.display = 'none';
-                    errorMessage.style.display = 'none';
-                }, 5000);
-            });
-        });
     </script>
     
     <style>
         .social-links {
             display: flex;
-            flex-direction: column;
-            gap: 12px;
+            flex-direction: row;
+            justify-content: center;
+            gap: 20px;
         }
 
         .social-link {
@@ -232,6 +144,13 @@
         
         .social-icon i {
             font-size: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .social-links {
+                flex-direction: column;
+                gap: 12px;
+            }
         }
     </style>
 </body>
